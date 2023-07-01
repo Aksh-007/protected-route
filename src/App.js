@@ -19,12 +19,18 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/admin/dashboard" element={
-          <ProtectedRoute isAuthenticated={isAuthenticated}>
-            <Dashboard />
-          </ProtectedRoute>
-        } />
-        <Route path="/login" element={<Login isAuthenticated={isAuthenticated} />} />
+        <Route path="/login" element={<Login />} />
+
+       {/* this using childern route */}
+        {/* <Route
+          path="/admin/dashboard"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated} adminRoute={true}>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        /> */}
+        {/* 
         <Route
           path="/profile"
           element={
@@ -33,12 +39,31 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/myorders" element={
-          <ProtectedRoute isAuthenticated={isAuthenticated}>
-            <Orders />
-          </ProtectedRoute>
-        } />
-        <Route path="/blogs" element={<Blogs />} />
+
+        <Route
+          path="/myorders"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <MyOrders />
+            </ProtectedRoute>
+          }
+        /> */}
+
+        {/* <Route
+          path="/myblog"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <MyBlog />
+            </ProtectedRoute>
+          }
+        /> */}
+        <Route element={<ProtectedRoute isAuthenticated={isAuthenticated} />}>
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/admin/dashboard' element={<Dashboard />} />
+          <Route path='/myorders' element={<Orders />} />
+          <Route path="/blogs" element={<Blogs />} />
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );
