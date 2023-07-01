@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ isAuthenticated }) => {
   return (
     <nav>
       <Link to="/">Home</Link>
@@ -9,6 +9,7 @@ const Header = () => {
       <Link to="/profile">Profile</Link>
       <Link to="/myorders">My Orders</Link>
       <Link to="/blogs">Blogs</Link>
+      {isAuthenticated ? <p>User Login</p> : <p>User Logout</p>}
     </nav>
   );
 };

@@ -16,12 +16,12 @@ function App() {
   const { isAuthenticated } = useSelector((state) => state.root);
   return (
     <BrowserRouter>
-      <Header />
+      <Header isAuthenticated={isAuthenticated} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login isAuthenticated={isAuthenticated} />} />
 
-       {/* this using childern route */}
+        {/* this using childern route */}
         {/* <Route
           path="/admin/dashboard"
           element={
