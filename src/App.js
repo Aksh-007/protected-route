@@ -26,7 +26,7 @@ function App() {
         } />
         <Route path="/login" element={<Login isAuthenticated={isAuthenticated} />} />
         <Route
-          path="/
+          path="/"
           element={
             <ProtectedRoute isAuthenticated={isAuthenticated}>
               <Profile />
