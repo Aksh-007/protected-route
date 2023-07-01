@@ -1,13 +1,12 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const handleLogout = () => {
     dispatch({ type: "logout" });
-    navigate("/login");
   };
   return (
     <div
